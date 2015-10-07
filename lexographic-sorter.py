@@ -30,7 +30,7 @@ print("""
 #
 #
 # Assignment P3.16
-# Chev Y. 
+# Darkerego's Python Homework :-/
 # Oct 1 15
 #
 # It just irritates me to death that

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Chev Y. [Sept 17, '15]
+# DarerEgo's Python Homework [Sept 17, '15]
 # URI PATH ... Formation?
 ##########################
 import re

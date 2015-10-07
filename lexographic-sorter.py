@@ -44,7 +44,7 @@ cur_version = sys.version_info
 
 if not cur_version >= req_version:
     print ("Your Python interpreter is too old. Please consider upgrading.")
-    exit(2)
+    exit(1)
 
 
 

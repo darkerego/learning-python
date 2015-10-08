@@ -1,4 +1,4 @@
-#!/usr/bin/python3.4 env
+#!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 #####################################
 # Algerithm (for doing this manually)

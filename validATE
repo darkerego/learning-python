@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+# Date Formats
+#m = ""
+#d = ""
+y = "2015"
+print ("""
+
+
+╔╦╗╔═╗╔╦╗╔═╗╔═╗
+ ║║╠═╣ ║ ║╣ ╚═╗
+═╩╝╩ ╩ ╩ ╚═╝╚═╝
+
+      Enter a month and day and see if
+    that day is in the given month's range.
+
+""")
+from datetime import datetime,date
+
+def getM():
+    m = int(input("Enter the month : "))
+    checkM(m)
+    return m
+
+def getD():
+    d = int(input("Enter the day: "))
+    checkD(d)
+    return d
+
+
+
+def checkM(month):
+    mOk = "0"
+    while mOk == "0":
+        if int(month) <= 12 and int(month) > 0:
+            mOk = "1"
+            m = int(month)
+            print(month)
+            return(month)
+            
+            break
+        else:
+            getM()
+            break
+    #return (month)
+
+def checkD(day):
+    dOk = "0"
+    while dOk == "0":
+       
+        if int(day) <= 31 and int(day) > 0:
+            dOk = "1"
+            d = int(day)
+            print(day)
+            return (day)
+            break
+        else:
+            getD()
+            break
+    #return (day)
+
+def validYN():
+    m = getM()
+    d = getD()
+    while 1:
+        try:
+            a = (datetime(2015,(m),(d)));print ("It checks out ! \nYour Date String: \n>> %s" % a) 
+            #a = ("'%s'-'%s'-'%s'").format(y, m, d)
+            #a = int(y)+int(m)+int(d)
+            #print(a)
+            #a = datetime.strptime(a,('%Y-%m-%d'))
+            #a = (datetime.strptime((2015),((m)(d))))
+            #print ("It checks out ! \nYour Date String: \n>>")
+            #print(repr(a))
+            break
+        except ValueError as e:
+            print(e)
+            break
+
+def main():
+    
+    validYN()
+main()
+#print(date_string)

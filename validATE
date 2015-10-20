@@ -1,18 +1,39 @@
 #!/usr/bin/env python
-# Date Formats
-y = "2015"
+# DarkerEgo's Python Homework
+# Oct 20, 2015
+# The ValiDATer
+
+
+# to check our date and exit cleanly
+import datetime,sys
+
+# Welcome message
+
 print ("""
 
 
-╔╦╗╔═╗╔╦╗╔═╗╔═╗
- ║║╠═╣ ║ ║╣ ╚═╗
-═╩╝╩ ╩ ╩ ╚═╝╚═╝
+MMMM▄MMM██MMM█MMMMM▄█M██▄MMM██MMDDYY▄▄▄▄▀M▄███▄MMM
+MMMMM█MM█M█MM█MMMMM██M█MM█MM█M█MM▀▀▀M█MMMM█▀MMM▀MM
+█MMMMM█M█▄▄█M█MMMMM██M█MMM█M█▄▄█MMMMM█MMMM██▄▄MMMM
+M█MMMM█M█MM█M███▄MM▐█M█MM█MM█MM█MMMM█MMMMM█▄MMM▄▀M
+MM█MM█MMMMM█MMMMM▀MM▐M███▀MMMMM█MMM▀MMDDYY▀███▀MMM
+MMM█▐MMMMM█MMDDYYMMDDYYMMDDYYM█MMDDYYMMDDYYMMDDYYM
+MMM▐MMMMM▀MMDDYYMMDDYYMMDDYYM▀MMDDYYMMDDYYMMDDYYMM
 
-      Enter a month and day and see if
-    that day is in the given month's range.
 
+                Enter a year, month, and day and see if
+             the day is in the given month of the given
+                             year's range.
 """)
-from datetime import datetime,date
+
+
+
+# A tad overcomplicated, but here we declare 3 funcs to grab input
+def getY():
+    y = int(input("Enter the year : "))
+    checkY(y)
+    return y
+    
 
 def getM():
     m = int(input("Enter the month : "))
@@ -25,6 +46,25 @@ def getD():
     return d
 
 
+# As we get the input, we validate it.
+
+# If year is greater than current year, it's invalid.
+# I guess it didn't have to be, but that's how I did it.
+def checkY(year):
+    myMaxYear = datetime.date.today().year
+    yOk = "0"
+    while yOk == "0":
+        if int(year) <= myMaxYear:
+            yOk = "1"
+            y = int(year)
+            print(year)
+            return(year)
+            break
+        else:
+            getY()
+            break
+
+# There's only ever 12 months          
 
 def checkM(month):
     mOk = "0"
@@ -40,7 +80,7 @@ def checkM(month):
             getM()
             break
 
-
+# And there's only ever between 28 - 31 days in a month
 def checkD(day):
     dOk = "0"
     while dOk == "0":
@@ -54,18 +94,21 @@ def checkD(day):
         else:
             getD()
             break
-
+        
+# Now we make sure all the input makes sense
 
 def validYN():
+    y = getY()
     m = getM()
     d = getD()
     stuff = "0"
     while stuff == "0":
         try:
-            a = (datetime(2015,(m),(d)))
+            a = (datetime.datetime((y),(m),(d)))
             print ("It checks out ! \nYour Date String: \n>> %s" % a)
             stuff = "1"
             pass
+# If not, call the main() function again and try new input
         except ValueError as e:
             print(e)
             main()
@@ -73,5 +116,8 @@ def validYN():
 def main():
     validYN()
 
-main()
+# Start it up!
+if __name__ == "__main__":
 
+    main()
+    sys.exit(0)

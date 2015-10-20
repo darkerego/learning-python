@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # Date Formats
-#m = ""
-#d = ""
 y = "2015"
 print ("""
 
@@ -41,7 +39,7 @@ def checkM(month):
         else:
             getM()
             break
-    #return (month)
+
 
 def checkD(day):
     dOk = "0"
@@ -56,28 +54,24 @@ def checkD(day):
         else:
             getD()
             break
-    #return (day)
+
 
 def validYN():
     m = getM()
     d = getD()
-    while 1:
+    stuff = "0"
+    while stuff == "0":
         try:
-            a = (datetime(2015,(m),(d)));print ("It checks out ! \nYour Date String: \n>> %s" % a) 
-            #a = ("'%s'-'%s'-'%s'").format(y, m, d)
-            #a = int(y)+int(m)+int(d)
-            #print(a)
-            #a = datetime.strptime(a,('%Y-%m-%d'))
-            #a = (datetime.strptime((2015),((m)(d))))
-            #print ("It checks out ! \nYour Date String: \n>>")
-            #print(repr(a))
-            break
+            a = (datetime(2015,(m),(d)))
+            print ("It checks out ! \nYour Date String: \n>> %s" % a)
+            stuff = "1"
+            pass
         except ValueError as e:
             print(e)
+            main()
             break
-
 def main():
-    
     validYN()
+
 main()
-#print(date_string)
+

@@ -65,7 +65,7 @@ f = e + addA
 
 # check validity
 def check():
-    if f % 2 == 0:
+    if f % 10 == 0:
         print("Valid")
     else:
         print("Not valid")

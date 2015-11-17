@@ -4,8 +4,7 @@
 #8 characters, one uppercase and one lowercase, and at least one digit
 
 import sys
-#passOne = ""
-#passTwo = ""
+
 
 # you were not declaring your variables as function args for one thing:
 #like this:

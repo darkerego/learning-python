@@ -1,0 +1,80 @@
+# DarkerEgo
+#11/12/2015
+#validates password length, double checks it, and checks that it has
+#8 characters, one uppercase and one lowercase, and at least one digit
+
+import sys
+#passOne = ""
+#passTwo = ""
+
+# you were not declaring your variables as function args for one thing:
+#like this:
+def validLength(validPass):
+    if len(validPass) >= 8:
+        return True
+    else:
+        return False
+        print ("Your password is too short!")
+        sys.exit(0)
+
+def upperLowerDigit(validPass):
+    lowerCase = "abcdefghijklmnopqrstuvwxyz"
+    upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    hasDigit = "1234567890"
+    
+    for i in range(len(validPass)):
+        if validPass[i] in lowerCase:
+            if validPass[i] in upperCase:
+                if validPass[i] in hasDigit:
+                    return True
+
+# this is not necessary because you're already checking for upper cases in the previous function
+ 
+"""def hasUpper():
+    for i in validPass:
+        if validPass.isupper():
+            return True
+        else:
+            return False
+            print ("Password needs one uppercase and one lowercase letter.")
+            sys.exit()"""
+  
+
+# define a functionto get input so that it can be looped upon invalid input
+
+def get():
+            passOne = str(input("Enter your password: "))
+            passTwo = str(input("Retype your password: "))
+            return passOne,passTwo
+
+def match(passOne,passTwo):
+        if passOne == passTwo:
+            return True
+
+# you ought to run all of your functions through the main function. The main function is
+# the one that controls the flow of the program
+
+
+
+def main():
+    while 1:
+        try:
+            passOne,passTwo = get()
+            if not match(passOne,passTwo):
+                print("Passwords do not match!")
+                passOne,passTwo = get()
+            validPass = passOne
+            break
+        except ValueError:
+            print("")
+            
+    if validLength(validPass):
+        print("length ok")
+        if upperLowerDigit(validPass):
+            print("password ok..")
+        else:
+            print ("Password needs one uppercase and one lowercase letter.")
+            get()
+
+
+main()

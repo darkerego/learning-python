@@ -22,6 +22,8 @@ def upperLowerDigit(validPass):
     upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     hasDigit = "1234567890"
     
+    # Use nested if's and dont return true until you've checked all the conditions...
+    
     for i in range(len(validPass)):
         if validPass[i] in lowerCase:
             if validPass[i] in upperCase:
@@ -52,16 +54,18 @@ def match(passOne,passTwo):
             return True
 
 # you ought to run all of your functions through the main function. The main function is
-# the one that controls the flow of the program
-
-
+# the one that controls the flow of the program. Everything should be executed through the main func:
 
 def main():
+    # loop till we get valid input
     while 1:
         try:
+            # "try" to call get() to get the password
             passOne,passTwo = get()
+            # call match(passOne,passTwo) to check if they are equal
             if not match(passOne,passTwo):
                 print("Passwords do not match!")
+                # if not, get more input
                 passOne,passTwo = get()
             validPass = passOne
             break

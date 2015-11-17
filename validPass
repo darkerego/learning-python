@@ -1,4 +1,4 @@
-# DarkerEgo
+#!/usr/bin/env python
 #11/12/2015
 #validates password length, double checks it, and checks that it has
 #8 characters, one uppercase and one lowercase, and at least one digit
